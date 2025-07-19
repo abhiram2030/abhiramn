@@ -1,0 +1,149 @@
+ <!DOCTYPE html>
+<html>
+<head>
+  <title>Spin Wheel — 10 Last</title>
+  <style>
+    canvas {
+      border: 4px solid #333;
+      border-radius: 50%;
+      margin-top: 30px;
+    }
+    #spin {
+      margin-top: 20px;
+      padding: 10px 20px;
+      font-size: 20px;
+    }
+    #pointer {
+      width: 0; 
+      height: 0; 
+      border-left: 20px solid transparent;
+      border-right: 20px solid transparent;
+      border-bottom: 30px solid red;
+      position: absolute;
+      top: 10px;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+  </style>
+</head>
+<body>
+  <div id="pointer"></div>
+  <center>
+    <canvas id="wheel" width="400" height="400"></canvas>
+    <br>
+    <button id="spin">Spin</button>
+  </center>
+
+  <script>
+    const canvas = document.getElementById("wheel");
+    const ctx = canvas.getContext("2d");
+    const segments = 10;
+    const angle = (2 * Math.PI) / segments;
+    const radius = 200;
+    const centerX = canvas.width / 2;
+    const centerY = canvas.height / 2;
+
+    const urls = [
+      'https://example.com/page1',
+      'https://example.com/page2',
+      'https://example.com/page3',
+      'https://example.com/page4',
+      'https://example.com/page5',
+      'https://example.com/page6',
+      'https://example.com/page7',
+      'https://example.com/page8',
+      'https://example.com/page9',
+      'https://example.com/page10'  // number 10 (last)
+    ];
+
+    let rotation = 0;
+    let spinning = false;
+
+    let remaining = JSON.parse(localStorage.getItem("remaining")) || [...Array(segments).keys()];
+    
+    function drawWheel(currentAngle = 0) {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      for (let i = 0; i < segments; i++) {
+        ctx.beginPath();
+        ctx.moveTo(centerX, centerY);
+        ctx.fillStyle = i % 2 === 0 ? "#90caf9" : "#e3f2fd";
+        ctx.arc(centerX, centerY, radius, currentAngle + i * angle, currentAngle + (i + 1) * angle);
+        ctx.fill();
+
+        // Draw numbers
+        ctx.save();
+        ctx.translate(centerX, centerY);
+        ctx.rotate(currentAngle + i * angle + angle / 2);
+        ctx.textAlign = "right";
+        ctx.fillStyle = "#000";
+        ctx.font = "20px sans-serif";
+        ctx.fillText((i + 1).toString(), radius - 10, 10);
+        ctx.restore();
+      }
+    }
+
+    drawWheel();
+
+    function spinWheel() {
+      if (spinning) return;
+
+      if (remaining.length === 0) {
+        alert("All numbers used. Resetting.");
+        remaining = [...Array(segments).keys()];
+        localStorage.setItem("remaining", JSON.stringify(remaining));
+        drawWheel();
+        return;
+      }
+
+      spinning = true;
+
+      // Select number: 10 (index 9) only if it's the last
+      let selected;
+      if (remaining.length === 1) {
+        selected = remaining[0]; // must be 10 (index 9)
+      } else {
+        const choices = remaining.filter(n => n !== 9); // exclude index 9 (number 10)
+        const randIndex = Math.floor(Math.random() * choices.length);
+        selected = choices[randIndex];
+      }
+
+      const segmentAngle = 2 * Math.PI / segments;
+      const targetAngle = (3 * Math.PI / 2) - (selected * segmentAngle) - segmentAngle / 2;
+      const spins = 5;
+      const totalAngle = spins * 2 * Math.PI + targetAngle;
+
+      let start = null;
+
+      function animate(timestamp) {
+        if (!start) start = timestamp;
+        let progress = (timestamp - start) / 3000;
+        if (progress > 1) progress = 1;
+
+        let easedProgress = 1 - Math.pow(1 - progress, 3); // ease out
+        let currentRotation = rotation + (totalAngle - rotation) * easedProgress;
+        drawWheel(currentRotation);
+
+        if (progress < 1) {
+          requestAnimationFrame(animate);
+        } else {
+          rotation = totalAngle % (2 * Math.PI);
+          spinning = false;
+
+          // Remove from remaining
+          remaining = remaining.filter(n => n !== selected);
+          localStorage.setItem("remaining", JSON.stringify(remaining));
+
+          // Redirect after 1 second
+          setTimeout(() => {
+            window.location.href = urls[selected];
+          }, 1000);
+        }
+      }
+
+      requestAnimationFrame(animate);
+    }
+
+    document.getElementById("spin").addEventListener("click", spinWheel);
+  </script>
+</body>
+</html>
