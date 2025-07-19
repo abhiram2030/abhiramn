@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>AAGHAAZ - Welcome Day Event </title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(to right, #fefefe 0%, #f3f4f6 100%);
+      background-image: url('https://www.transparenttextures.com/patterns/white-wall-3.png'); /* Notebook paper effect */
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      min-height: 100vh;
+    }
+
+    header {
+      width: 100%;
+      background-color: #512da8;
+      color: white;
+      padding: 20px;
+      text-align: center;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 48px;
+      letter-spacing: 2px;
+    }
+
+    .banner {
+      margin-top: 20px;
+      max-width: 90%;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    }
+
+    .container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+      gap: 20px;
+      padding: 30px;
+      max-width: 700px;
+      width: 100%;
+    }
+
+    .box {
+      background-color: #7e57c2;
+      color: white;
+      font-size: 26px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 120px;
+      border-radius: 16px;
+      text-decoration: none;
+      box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+      cursor: pointer;
+      animation: fadeInUp 0.7s ease forwards;
+      opacity: 0;
+      transition: transform 0.3s ease;
+      position: relative;
+    }
+
+    .box:hover {
+      transform: scale(1.08);
+      background-color: #673ab7;
+    }
+
+    .box::before {
+      content: '🎓';
+      position: absolute;
+      top: 10px;
+      left: 10px;
+      font-size: 20px;
+    }
+
+    footer {
+      margin-top: auto;
+      padding: 20px;
+      color: #555;
+      font-size: 14px;
+    }
+
+    /* Animations */
+    @keyframes fadeInUp {
+      0% {
+        transform: translateY(40px);
+        opacity: 0;
+      }
+      100% {
+        transform: translateY(0);
+        opacity: 1;
+      }
+    }
+
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>AAGHAAZ</h1>
+    <p>Welcome Day Event</p>
+  </header>
+
+
+  <div class="container">
+    <a href="page1.html" class="box" style="animation-delay: 0.2s">1</a>
+    <a href="page2.html" class="box" style="animation-delay: 0.4s">2</a>
+    <a href="page3.html" class="box" style="animation-delay: 0.6s">3</a>
+    <a href="page4.html" class="box" style="animation-delay: 0.8s">4</a>
+    <a href="page5.html" class="box" style="animation-delay: 1s">5</a>
+    <a href="page1.html" class="box" style="animation-delay: 0.2s">6</a>
+    <a href="page2.html" class="box" style="animation-delay: 0.4s">7</a>
+    <a href="page3.html" class="box" style="animation-delay: 0.6s">8</a>
+    <a href="page4.html" class="box" style="animation-delay: 0.8s">9</a>
+    <a href="page5.html" class="box" style="animation-delay: 1s">10</a>
+    <a href="page1.html" class="box" style="animation-delay: 0.2s">11</a>
+    <a href="page2.html" class="box" style="animation-delay: 0.4s">12</a>
+    <a href="page3.html" class="box" style="animation-delay: 0.6s">13</a>
+    <a href="page4.html" class="box" style="animation-delay: 0.8s">14</a>
+    <a href="page5.html" class="box" style="animation-delay: 1s">15</a>
+    <a href="page1.html" class="box" style="animation-delay: 0.2s">16</a>
+    <a href="page2.html" class="box" style="animation-delay: 0.4s">17</a>
+    <a href="page3.html" class="box" style="animation-delay: 0.6s">18</a>
+    <a href="page4.html" class="box" style="animation-delay: 0.8s">19</a>
+    <a href="page5.html" class="box" style="animation-delay: 1s">20</a>
+
+
+
+
+
+  </div>
+
+  <footer>
+    © 2025 AAGHAAZ | BCA-Aided
+  </footer>
+
+</body>
+</html>
