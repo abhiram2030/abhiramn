@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Spin Wheel — 10 Last</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      position: relative;
+    }
+    canvas {
+      border: 4px solid #333;
+      border-radius: 50%;
+      margin-top: 50px;
+    }
+    #pointer {
+      width: 0; 
+      height: 0; 
+      border-left: 20px solid transparent;
+      border-right: 20px solid transparent;
+      border-bottom: 30px solid red;
+      position: absolute;
+      top: 10px;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 2;
+    }
+    #buttons {
+      margin-top: 20px;
+    }
+    button {
+      padding: 10px 20px;
+      font-size: 18px;
+      margin: 10px;
+      cursor: pointer;
+      border: none;
+      border-radius: 5px;
+    }
+    #spin {
+      background-color: #4caf50;
+      color: white;
+    }
+    #reset {
+      background-color: #f44336;
+      color: white;
+    }
+  </style>
+</head>
+<body>
+
+  <div id="pointer"></div>
+  <canvas id="wheel" width="400" height="400"></canvas>
+
+  <div id="buttons">
+    <button id="spin">Spin</button>
+    <button id="reset">Reset</button>
+  </div>
+
+  <script>
+    const canvas = document.getElementById("wheel");
+    const ctx = canvas.getContext("2d");
+    const segments = 12;
+    const angle = (2 * Math.PI) / segments;
+    const radius = 200;
+    const centerX = canvas.width / 2;
+    const centerY = canvas.height / 2;
+    const colors = ["#f44336", "#4caf50", "#2196f3", "#ff9800","#9c27b0", "#3f51b5", "#00bcd4", "#ffc107","#e91e63", "#795548", "#607d8b", "#8bc34a"];
+    const urls = [
+      'page1.html',
+      'page2.html',
+      'page3.html',
+      'page4.html',
+      'page5.html',
+      'page6.html',
+      'page7.html',
+      'page8.html',
+      'page9.html',
+      'page10.html',
+      'page11.html',
+      'page12.html'
+    ];
+
+    let rotation = 0;
+    let spinning = false;
+    let remaining = JSON.parse(localStorage.getItem("remaining")) || [...Array(segments).keys()];
+
+    function drawWheel(currentAngle = 0) {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      for (let i = 0; i < segments; i++) {
+        ctx.beginPath();
+        ctx.moveTo(centerX, centerY);
+        ctx.fillStyle = colors[i];
+        ctx.arc(centerX, centerY, radius, currentAngle + i * angle, currentAngle + (i + 1) * angle);
+        ctx.fill();
+
+        // Draw numbers
+        ctx.save();
+        ctx.translate(centerX, centerY);
+        ctx.rotate(currentAngle + i * angle + angle / 2);
+        ctx.textAlign = "right";
+        ctx.fillStyle = "#000";
+        ctx.font = "30px bold Arial";
+        ctx.fillText((i + 1).toString(), radius - 10, 10);
+        ctx.restore();
+      }
+    }
+
+    drawWheel();
+
+    function spinWheel() {
+      if (spinning) return;
+
+      if (remaining.length === 0) {
+        alert("All numbers used. Please reset the wheel.");
+        return;
+      }
+
+      spinning = true;
+
+      let selected;
+      if (remaining.length === 1) {
+        selected = remaining[0];
+      } else {
+        const choices = remaining.filter(n => n !== 11); // exclude number 10 (index 9)
+        const randIndex = Math.floor(Math.random() * choices.length);
+        selected = choices[randIndex];
+      }
+
+      const segmentAngle = 2 * Math.PI / segments;
+      const targetAngle = (3 * Math.PI / 2) - (selected * segmentAngle) - segmentAngle / 2;
+      const spins = 5;
+      const totalAngle = spins * 2 * Math.PI + targetAngle;
+
+      let start = null;
+
+      function animate(timestamp) {
+        if (!start) start = timestamp;
+        let progress = (timestamp - start) / 3000;
+        if (progress > 1) progress = 1;
+
+        let eased = 1 - Math.pow(1 - progress, 3);
+        let currentRotation = rotation + (totalAngle - rotation) * eased;
+        drawWheel(currentRotation);
+
+        if (progress < 1) {
+          requestAnimationFrame(animate);
+        } else {
+          rotation = totalAngle % (2 * Math.PI);
+          spinning = false;
+
+          remaining = remaining.filter(n => n !== selected);
+          localStorage.setItem("remaining", JSON.stringify(remaining));
+
+          setTimeout(() => {
+            window.location.href = urls[selected];
+          }, 1000);
+        }
+      }
+
+      requestAnimationFrame(animate);
+    }
+
+    function resetWheel() {
+      localStorage.removeItem("remaining");
+      remaining = [...Array(segments).keys()];
+      rotation = 0;
+      drawWheel();
+      alert("Wheel has been reset!");
+    }
+
+    document.getElementById("spin").addEventListener("click", spinWheel);
+    document.getElementById("reset").addEventListener("click", resetWheel);
+  </script>
+</body>
+</html>
