@@ -1,0 +1,155 @@
+ <!DOCTYPE html>
+<html lang="ml">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>ഒപ്പനോത്സവം</title>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Malayalam:wght@700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Noto Sans Malayalam', sans-serif;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: linear-gradient(135deg, #fff0e6, #fffae6);
+      overflow: hidden;
+      position: relative;
+      animation: bgMove 10s ease-in-out infinite alternate;
+    }
+
+    @keyframes bgMove {
+      0% { background-position: 0% 0%; }
+      100% { background-position: 100% 100%; }
+    }
+
+    .container {
+      position: relative;
+      text-align: center;
+      background: rgba(255, 255, 255, 0.9);
+      padding: 40px 50px;
+      border-radius: 30px;
+      border: 10px solid #d4af37;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+      z-index: 2;
+      animation: fadeIn 1.5s ease;
+    }
+
+    h1 {
+      font-size: 3.5rem;
+      color: #8b0000;
+      text-shadow: 1px 1px 3px rgba(0,0,0,0.1);
+      margin-bottom: 15px;
+    }
+
+    .subtitle {
+      font-size: 1.5rem;
+      color: #444;
+      font-style: italic;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .saree {
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 150px;
+      height: 100%;
+      background: linear-gradient(to bottom, #ffc0cb 0%, #fff8dc 60%, #d4af37 100%);
+      clip-path: polygon(30% 0%, 100% 0%, 100% 100%, 50% 100%);
+      z-index: 1;
+      opacity: 0.9;
+    }
+
+    .drum {
+      position: absolute;
+      width: 80px;
+      height: 80px;
+      background: radial-gradient(circle, #d4a373 40%, #7c3f00 90%);
+      border-radius: 50%;
+      border: 5px solid #fff5cc;
+      animation: float 6s infinite ease-in-out;
+      z-index: 0;
+    }
+
+    .drum::after {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 30px;
+      height: 30px;
+      background: #fffbe8;
+      border-radius: 50%;
+    }
+
+    .drum.one {
+      top: 10%;
+      left: 8%;
+    }
+
+    .drum.two {
+      bottom: 10%;
+      right: 8%;
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-20px); }
+    }
+
+    /* Funny element: Sunglasses emoji */
+    .emoji {
+      position: absolute;
+      font-size: 2.5rem;
+      animation: spin 8s infinite linear;
+      opacity: 0.7;
+      z-index: 0;
+    }
+
+    .emoji.one {
+      top: 5%;
+      right: 20%;
+    }
+
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+
+    .poptext {
+      position: absolute;
+      bottom: 20%;
+      left: 50%;
+      transform: translateX(-50%);
+      font-size: 1.8rem;
+      color: #ff6600;
+      font-weight: bold;
+      animation: pop 5s infinite ease-in-out;
+      z-index: 3;
+    }
+
+    @keyframes pop {
+      0%, 100% { opacity: 0; transform: translateX(-50%) scale(0.9); }
+      50% { opacity: 1; transform: translateX(-50%) scale(1.1); }
+    }
+  </style>
+</head>
+<body>
+  <div class="saree"></div>
+  <div class="drum one"></div>
+  <div class="drum two"></div>
+  <div class="emoji one">🕶️</div>
+
+  <div class="container">
+    <h1>സാരിയാണല്ലോ മോനെ ദിനേശാ! </h1>
+  </div>
+</body>
+</html>

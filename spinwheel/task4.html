@@ -1,0 +1,114 @@
+ <!DOCTYPE html>
+<html lang="ml">
+<head>
+  <meta charset="UTF-8">
+  <title>പ്രണയപ്പത്രം - A Proposal Game</title>
+  <link href="https://fonts.googleapis.com/css2?family=Manjari:wght@700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background: linear-gradient(to bottom right, #ffe4ec, #fff0f5);
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-family: 'Manjari', sans-serif;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .container {
+      text-align: center;
+      background: rgba(255, 255, 255, 0.6);
+      padding: 60px 40px;
+      border-radius: 30px;
+      box-shadow: 0 15px 40px rgba(255, 192, 203, 0.3);
+      backdrop-filter: blur(8px);
+      animation: fadeIn 2s ease forwards;
+      opacity: 0;
+    }
+
+    h1 {
+      font-size: 64px;
+      color: #d63384;
+      text-shadow: 1px 1px 4px rgba(0,0,0,0.1);
+    }
+
+    .subtitle {
+      font-size: 20px;
+      color: #7b2cbf;
+      margin-top: 10px;
+    }
+
+    @keyframes fadeIn {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+      from {
+        opacity: 0;
+        transform: translateY(40px);
+      }
+    }
+
+    /* Floating hearts */
+    .heart {
+      position: absolute;
+      width: 24px;
+      height: 24px;
+      background: #ff6b81;
+      transform: rotate(45deg);
+      animation: floatHeart 8s linear infinite;
+      opacity: 0.6;
+    }
+
+    .heart::before,
+    .heart::after {
+      content: '';
+      position: absolute;
+      width: 24px;
+      height: 24px;
+      background: #ff6b81;
+      border-radius: 50%;
+    }
+
+    .heart::before {
+      top: -12px;
+      left: 0;
+    }
+
+    .heart::after {
+      left: -12px;
+      top: 0;
+    }
+
+    @keyframes floatHeart {
+      0% { transform: translateY(100vh) rotate(45deg); }
+      100% { transform: translateY(-120vh) rotate(45deg); }
+    }
+
+    /* Random heart positions & delays */
+    .h1 { left: 10%; animation-delay: 1s; }
+    .h2 { left: 30%; animation-delay: 2s; }
+    .h3 { left: 50%; animation-delay: 0s; }
+    .h4 { left: 70%; animation-delay: 3s; }
+    .h5 { left: 90%; animation-delay: 1.5s; }
+
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <h1> ❤️വേലക്കാരൻ ആയിരുന്നാലും നീ എൻ മോഹവല്ലൻ ❤️‍</h1>
+  </div>
+
+  <!-- Floating hearts -->
+  <div class="heart h1"></div>
+  <div class="heart h2"></div>
+  <div class="heart h3"></div>
+  <div class="heart h4"></div>
+  <div class="heart h5"></div>
+
+</body>
+</html>

@@ -1,0 +1,72 @@
+ <!DOCTYPE html>
+<html lang="ml">
+<head>
+  <meta charset="UTF-8">
+  <title>അഭിനയം അല്ലേ ഇതെല്ലാം</title>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Malayalam&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Noto Sans Malayalam', sans-serif;
+      background: linear-gradient(135deg, #f3e7e9, #e3eeff);
+      background-attachment: fixed;
+      color: #2e2e2e;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      overflow: hidden;
+    }
+
+    .stage {
+      background-color: #fff8f0;
+      padding: 60px 40px;
+      border-radius: 25px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+      text-align: center;
+      position: relative;
+      max-width: 800px;
+      width: 90%;
+    }
+
+    .curtain {
+      position: absolute;
+      width: 100%;
+      height: 60px;
+      top: 0;
+      left: 0;
+      background: repeating-linear-gradient(
+        45deg,
+        #9c1c1c,
+        #9c1c1c 10px,
+        #6b0f3a 10px,
+        #6b0f3a 20px
+      );
+      border-top-left-radius: 25px;
+      border-top-right-radius: 25px;
+    }
+
+    h1 {
+      font-size: 2.8em;
+      color: #b71c1c;
+      margin: 40px 0 0;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+      animation: fadeIn 2s ease;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(-20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="stage">
+    <div class="curtain"></div>
+    <h1>🎭 അഭിനയം അല്ലേ ഇതെല്ലാം 🎭</h1>
+  </div>
+
+</body>
+</html>

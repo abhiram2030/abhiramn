@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="ml">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>ബോട്ടിൽ ഫ്ലിപ്പ് ചാലഞ്ച്</title>
+  <link href="https://fonts.googleapis.com/css2?family=Rubik+Moonrocks&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Rubik Moonrocks', cursive;
+      background: linear-gradient(to right, #F9D423, #FF4E50);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      overflow: hidden;
+    }
+
+    .container {
+      text-align: center;
+      background-color: rgba(255, 255, 255, 0.2);
+      padding: 30px;
+      border-radius: 25px;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+      border: 4px dashed #ffffff;
+      animation: floaty 3s infinite ease-in-out;
+    }
+
+    h1 {
+      font-size: 3rem;
+      color: #fff;
+      text-shadow: 2px 2px #000;
+    }
+
+    .emoji {
+      font-size: 2.5rem;
+      animation: spin 4s linear infinite;
+      margin: 10px;
+    }
+
+    @keyframes floaty {
+      0%, 100% {
+        transform: translateY(0px);
+      }
+      50% {
+        transform: translateY(-20px);
+      }
+    }
+
+    @keyframes spin {
+      0% {
+        transform: rotate(0deg);
+      }
+      100% {
+        transform: rotate(360deg);
+      }
+    }
+
+    .bottle {
+      width: 80px;
+      height: auto;
+      animation: flip 2s infinite;
+      margin-top: 20px;
+    }
+
+    @keyframes flip {
+      0%, 100% {
+        transform: rotate(0deg);
+      }
+      50% {
+        transform: rotate(720deg);
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>കപ്പോ ഫ്ലിപ്പോ ☕🔄</h1>
+  </div>
+</body>
+</html>

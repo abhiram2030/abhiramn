@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="ml">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>പരസ്യപ്പൊട്ടി</title>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Malayalam:wght@700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Noto Sans Malayalam', sans-serif;
+      background: linear-gradient(135deg, #d4ffe2, #e0f0ff);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    .tv-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .tv-screen {
+      background: linear-gradient(to bottom right, #111 10%, #333 90%);
+      border: 14px solid #444;
+      border-radius: 30px;
+      width: 90vw;
+      max-width: 600px;
+      aspect-ratio: 4 / 3;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+      box-shadow:
+        inset 0 0 60px rgba(0, 255, 200, 0.15),
+        0 25px 60px rgba(0, 0, 0, 0.5),
+        0 8px 0 #222;
+      animation: zoomIn 1s ease-out;
+    }
+
+    .tv-reflection {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(to bottom right, rgba(255,255,255,0.15), transparent);
+      pointer-events: none;
+      border-radius: 30px;
+    }
+
+    .tv-stand {
+      width: 120px;
+      height: 15px;
+      background: #333;
+      margin-top: 10px;
+      border-radius: 4px;
+      box-shadow: inset 0 -2px 4px rgba(0, 0, 0, 0.6);
+    }
+
+    .tv-text {
+      font-size: 3.5rem;
+      color: white;
+      text-align: center;
+      z-index: 1;
+    }
+
+    @keyframes zoomIn {
+      0% { transform: scale(0.6); opacity: 0; }
+      100% { transform: scale(1); opacity: 1; }
+    }
+  </style>
+</head>
+<body>
+  <div class="tv-container">
+    <div class="tv-screen">
+      <div class="tv-text">ഈ AD Skip ആക്കല്ലേ?</div>
+      <div class="tv-reflection"></div>
+    </div>
+    <div class="tv-stand"></div>
+  </div>
+</body>
+</html>

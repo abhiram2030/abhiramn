@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="ml">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>പാട്ട് കളി</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Segoe UI', sans-serif;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      background: linear-gradient(-45deg, #ffe6f0, #e0f7fa, #fffde7, #f3e5f5);
+      background-size: 400% 400%;
+      animation: gradient 12s ease infinite;
+      overflow: hidden;
+    }
+
+    @keyframes gradient {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    .game-title {
+      font-size: 3rem;
+      color: #6a1b9a;
+      font-weight: bold;
+      text-shadow: 2px 2px 10px rgba(255, 255, 255, 0.8);
+      animation: pulse 2s infinite;
+      text-align: center;
+    }
+
+    @keyframes pulse {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.05); }
+      100% { transform: scale(1); }
+    }
+
+    .music-icons {
+      margin-top: 30px;
+      font-size: 2.5rem;
+      color: #d81b60;
+      animation: float 3s ease-in-out infinite;
+    }
+
+    @keyframes float {
+      0% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
+      100% { transform: translateY(0); }
+    }
+
+    .note {
+      margin: 0 15px;
+      display: inline-block;
+    }
+
+    .microphone {
+      font-size: 4rem;
+      color: #4a148c;
+      margin-top: 40px;
+      animation: bounce 2s infinite;
+    }
+
+    @keyframes bounce {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-15px); }
+    }
+  </style>
+
+  <!-- Load FontAwesome for music icons -->
+  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+</head>
+<body>
+
+  <div class="game-title">🎶 “ പാട്ട് സുഡോ” 🎶</div>
+
+  <div class="music-icons">
+    <span class="note"><i class="fas fa-music"></i></span>
+    <span class="note"><i class="fas fa-music"></i></span>
+    <span class="note"><i class="fas fa-music"></i></span>
+  </div>
+
+  <div class="microphone">
+    <i class="fas fa-microphone-alt"></i>
+  </div>
+
+</body>
+</html>

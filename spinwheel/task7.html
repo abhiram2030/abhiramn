@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="ml">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>ബിസ്കറ്റ് ചക്കര Challenge</title>
+  <link href="https://fonts.googleapis.com/css2?family=Chewy&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background: radial-gradient(circle at top left, #ffefba, #ffffff);
+      font-family: 'Chewy', cursive;
+      overflow-x: hidden;
+      animation: bgPulse 10s infinite;
+    }
+
+    @keyframes bgPulse {
+      0%, 100% { background-color: #fff2e6; }
+      50% { background-color: #ffe0cc; }
+    }
+
+    .container {
+      text-align: center;
+      padding: 4rem 1rem;
+    }
+
+    h1 {
+      font-size: 3rem;
+      color: #ff7b00;
+      text-shadow: 2px 2px 5px #ffcc99;
+    }
+
+    .biscuit {
+      font-size: 5rem;
+      animation: bounce 1.5s infinite;
+    }
+
+    .mascot {
+      width: 180px;
+      margin: 20px auto;
+      animation: wave 3s infinite;
+    }
+
+    @keyframes bounce {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-20px); }
+    }
+
+    @keyframes wave {
+      0%, 100% { transform: rotate(0deg); }
+      50% { transform: rotate(5deg); }
+    }
+
+    .funny-elements {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 1.5rem;
+      margin-top: 3rem;
+    }
+
+    .element {
+      background-color: #fff8e1;
+      border: 3px dashed #ffad33;
+      padding: 1rem;
+      border-radius: 20px;
+      width: 150px;
+      box-shadow: 3px 3px 10px rgba(0,0,0,0.1);
+      transform: rotate(-2deg);
+    }
+
+    .element:hover {
+      transform: rotate(2deg) scale(1.05);
+      background-color: #ffeecc;
+    }
+
+    .footer {
+      margin-top: 3rem;
+      font-size: 1rem;
+      color: #666;
+    }
+
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="biscuit">🍪😋</div>
+    <h1>എന്ത് BISCUIT?  പാൽ BISCUIT!</h1>
+  </div>
+</body>
+</html>

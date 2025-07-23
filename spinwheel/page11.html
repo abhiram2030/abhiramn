@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Gemini Miss</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Segoe UI', sans-serif;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      background: linear-gradient(120deg, #fceabb, #f8b500);
+      animation: bgTransition 10s infinite alternate;
+      transition: background 1s ease;
+    }
+
+    @keyframes bgTransition {
+      0% {
+        background: linear-gradient(120deg, #fdf6e3,#ffecd2);
+      }
+      100% {
+        background: linear-gradient(120deg, #c1f0f6, #fde2f3);
+      }
+    }
+
+    .profile-photo {
+      width: 250px;
+      height: 320px;
+      overflow: hidden;
+      border: 6px solid #fff;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+      margin-bottom: 20px;
+      border-radius: 16px; /* Rounded corners, remove if you want sharp corners */
+    }
+
+    .profile-photo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center top;
+    }
+
+    h1 {
+      font-size: 28px;
+      color: #333;
+      margin-bottom: 40px;
+    }
+
+    .gift-box {
+      cursor: pointer;
+      transition: transform 0.3s ease;
+    }
+
+    .gift-box:hover {
+      transform: scale(1.1);
+    }
+
+    .gift-box:active {
+      animation: shake 0.4s;
+    }
+
+    @keyframes shake {
+      0% { transform: translate(0px, 0px) rotate(0deg); }
+      25% { transform: translate(3px, -3px) rotate(3deg); }
+      50% { transform: translate(-3px, 3px) rotate(-3deg); }
+      75% { transform: translate(3px, 3px) rotate(3deg); }
+      100% { transform: translate(0px, 0px) rotate(0deg); }
+    }
+  </style>
+</head>
+<body>
+  <div class="profile-photo">
+    <img src="photo.jpeg" alt="Gemini Miss" />
+  </div>
+  <h1>❤️Gemini miss❤️</h1>
+  <a href="task11.html">
+    <img src="giftbox.png" alt="Gift Box" class="gift-box" width="100">
+  </a>
+</body>
+</html>

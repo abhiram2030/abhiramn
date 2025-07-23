@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="ml">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>ഓർമ്മപ്പുര - Memory Challenge</title>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Malayalam:wght@900&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background: linear-gradient(to right, #a18cd1, #fbc2eb);
+      font-family: 'Noto Sans Malayalam', sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      overflow: hidden;
+    }
+
+    .card {
+      background: white;
+      border-radius: 30px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+      padding: 30px 40px;
+      text-align: center;
+      max-width: 90%;
+      width: 600px;
+      animation: floatIn 1s ease forwards;
+    }
+
+    .card h1 {
+      font-size: 2.5em;
+      color: #FFD700;
+      margin: 0;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    @keyframes floatIn {
+      0% { transform: translateY(100px); opacity: 0; }
+      100% { transform: translateY(0); opacity: 1; }
+    }
+
+    @media (max-width: 480px) {
+      .card h1 {
+        font-size: 1.8em;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <h1>🧠 ഓർമ്മയുണ്ടോ സാറെ 🧠</h1>
+  </div>
+</body>
+</html>
